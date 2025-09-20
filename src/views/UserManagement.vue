@@ -367,14 +367,14 @@ import {
   mdiTestTube,
   mdiPill,
   mdiRadioactive,
-  mdiKarate, // Corrected from mdiPhysicalTherapy
-  mdiNurse,
+  mdiKarate,
+  mdiClipboardPulse, // CORRECTED from mdiNurse
   mdiHeart,
-  mdiHumanPregnant, // Added for Maternity
-  mdiScalpel, // Added for Theatre Ward
-  mdiGenderFemale, // Added for Female Ward
-  mdiGenderMale, // Added for Male Ward
-  mdiAccountChild, // Added for Children Ward
+  mdiHumanPregnant,
+  mdiScalpel,
+  mdiGenderFemale,
+  mdiGenderMale,
+  mdiAccountChild,
 } from '@mdi/js'
 
 const router = useRouter()
@@ -470,14 +470,14 @@ const getDepartmentIcon = (departmentName) => {
     'Laboratory': mdiTestTube,
     'Pharmacy': mdiPill,
     'Radiology': mdiRadioactive,
-    'Rehabilitation': mdiKarate, // Corrected
-    'OPD': mdiNurse,
+    'Rehabilitation': mdiKarate,
+    'OPD': mdiClipboardPulse, // CORRECTED
     'FCH Ward': mdiHeart,
-    'Maternity': mdiHumanPregnant, // Corrected
-    'Theatre Ward': mdiScalpel, // Corrected
-    'Female Ward': mdiGenderFemale, // Corrected
-    'Male Ward': mdiGenderMale, // Corrected
-    'Children Ward': mdiAccountChild // Corrected
+    'Maternity': mdiHumanPregnant,
+    'Theatre Ward': mdiScalpel,
+    'Female Ward': mdiGenderFemale,
+    'Male Ward': mdiGenderMale,
+    'Children Ward': mdiAccountChild
   }
   return iconMap[departmentName] || mdiAccountGroup
 }
