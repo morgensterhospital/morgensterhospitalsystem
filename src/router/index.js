@@ -126,7 +126,7 @@ const routes = [
   {
     path: '/patient/:id/billing',
     name: 'PatientBilling',
-    component: () => import('@/views/patient/PatientBilling.vue'),
+    component: () => import('@/views/patient/Billing.vue'),
     meta: { requiresAuth: true, permissions: ['billing:create'] }
   },
   {
