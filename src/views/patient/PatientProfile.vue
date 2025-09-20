@@ -170,7 +170,7 @@
         <!-- Nurse's Notes Module -->
         <div v-if="hasPermission('nurses_notes:view')" class="module-card nurses-notes">
           <div class="module-header">
-            <mdi-icon :path="mdiNurse" size="32" />
+            <mdi-icon :path="mdiStethoscope" size="32" />
             <h3>NURSES NOTES</h3>
           </div>
           <div class="module-actions">
@@ -286,7 +286,7 @@
         <!-- Radiology Module -->
         <div v-if="hasPermission('radiology_requests:view')" class="module-card radiology">
           <div class="module-header">
-            <mdi-icon :path="mdiRadiobox" size="32" />
+            <mdi-icon :path="mdiRadioactive" size="32" />
             <h3>RADIOLOGY</h3>
           </div>
           <div class="module-actions">
@@ -315,7 +315,7 @@
         <!-- Operations/Surgeries Module -->
         <div v-if="hasPermission('operations:view')" class="module-card operations">
           <div class="module-header">
-            <mdi-icon :path="mdiScalpel" size="32" />
+            <mdi-icon :path="mdiScissorsCutting" size="32" />
             <h3>OPERATIONS/SURGERIES</h3>
           </div>
           <div class="module-actions">
@@ -336,7 +336,7 @@
         <!-- Rehabilitation Module -->
         <div v-if="hasPermission('rehabilitation_notes:view')" class="module-card rehabilitation">
           <div class="module-header">
-            <mdi-icon :path="mdiPhysicalTherapy" size="32" />
+            <mdi-icon :path="mdiDumbbell" size="32" />
             <h3>REHABILITATION NOTES</h3>
           </div>
           <div class="module-actions">
@@ -447,13 +447,13 @@ import {
   mdiAlertCircle,
   mdiCashMultiple,
   mdiDoctor,
-  mdiNurse,
+  mdiStethoscope,
   mdiHeart,
   mdiPill,
   mdiTestTube,
-  mdiRadiobox,
-  mdiScalpel,
-  mdiPhysicalTherapy,
+  mdiRadioactive,
+  mdiScissorsCutting,
+  mdiDumbbell,
   mdiHospitalBuilding,
   mdiFileDocument,
   mdiHistory
@@ -510,17 +510,14 @@ const formatDate = (date) => {
 // Module action handlers
 const viewDoctorNotes = () => {
   console.log('View doctor notes')
-  // Implement modal or navigation to doctor notes
 }
 
 const editDoctorNotes = () => {
   console.log('Edit doctor notes')
-  // Implement edit functionality
 }
 
 const addDoctorNote = () => {
   console.log('Add doctor note')
-  // Implement add functionality
 }
 
 const viewNurseNotes = () => {

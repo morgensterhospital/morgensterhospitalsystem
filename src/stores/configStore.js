@@ -4,8 +4,6 @@ import { doc, getDoc, updateDoc, onSnapshot } from 'firebase/firestore'
 import { db } from '@/services/firebase'
 import { useAuthStore } from './authStore'
 import apiService from '@/services/api'
-import { useAuthStore } from './authStore'
-import apiService from '@/services/api'
 
 export const useConfigStore = defineStore('config', () => {
   const priceList = ref([])
@@ -82,17 +80,6 @@ export const useConfigStore = defineStore('config', () => {
     const item = inventory.value.find(item => item.id === itemId)
     return item ? item.stockLevel : 0
   }
-  // Get price by item ID
-  const getItemPrice = (itemId) => {
-    const item = priceList.value.find(item => item.id === itemId)
-    return item ? item.price : 0
-  }
-
-  // Get stock level by item ID
-  const getStockLevel = (itemId) => {
-    const item = inventory.value.find(item => item.id === itemId)
-    return item ? item.stockLevel : 0
-  }
 
   return {
     priceList: computed(() => priceList.value),
@@ -103,8 +90,6 @@ export const useConfigStore = defineStore('config', () => {
     loadInventory,
     updatePriceList,
     updateInventory,
-    getItemPrice,
-    getStockLevel
     getItemPrice,
     getStockLevel
   }
