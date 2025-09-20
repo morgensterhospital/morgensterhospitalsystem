@@ -315,7 +315,7 @@
         <!-- Operations/Surgeries Module -->
         <div v-if="hasPermission('operations:view')" class="module-card operations">
           <div class="module-header">
-            <mdi-icon :path="mdiScalpelLine" size="32" />
+            <mdi-icon :path="mdiScissorsCutting" size="32" />
             <h3>OPERATIONS/SURGERIES</h3>
           </div>
           <div class="module-actions">
@@ -336,7 +336,7 @@
         <!-- Rehabilitation Module -->
         <div v-if="hasPermission('rehabilitation_notes:view')" class="module-card rehabilitation">
           <div class="module-header">
-            <mdi-icon :path="mdiRun" size="32" />
+            <mdi-icon :path="mdiDumbbell" size="32" />
             <h3>REHABILITATION NOTES</h3>
           </div>
           <div class="module-actions">
@@ -452,8 +452,8 @@ import {
   mdiPill,
   mdiTestTube,
   mdiRadioactive,
-  mdiScalpelLine,
-  mdiRun,
+  mdiScissorsCutting,
+  mdiDumbbell,
   mdiHospitalBuilding,
   mdiFileDocument,
   mdiHistory
@@ -510,17 +510,14 @@ const formatDate = (date) => {
 // Module action handlers
 const viewDoctorNotes = () => {
   console.log('View doctor notes')
-  // Implement modal or navigation to doctor notes
 }
 
 const editDoctorNotes = () => {
   console.log('Edit doctor notes')
-  // Implement edit functionality
 }
 
 const addDoctorNote = () => {
   console.log('Add doctor note')
-  // Implement add functionality
 }
 
 const viewNurseNotes = () => {
@@ -591,7 +588,7 @@ const addOperation = () => {
   console.log('Add operation')
 }
 
-const viewRehabNotes = () => {
+const viewRehabNotes = ()_=> {
   console.log('View rehab notes')
 }
 
