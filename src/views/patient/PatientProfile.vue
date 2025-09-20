@@ -588,7 +588,7 @@ const addOperation = () => {
   console.log('Add operation')
 }
 
-const viewRehabNotes = ()_=> {
+const viewRehabNotes = () => {
   console.log('View rehab notes')
 }
 
