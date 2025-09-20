@@ -366,7 +366,7 @@ import {
   mdiCashMultiple,
   mdiTestTube,
   mdiPill,
-  mdiRadiobox,
+  mdiRadioactive, // CORRECTED
   mdiPhysicalTherapy,
   mdiNurse,
   mdiHeart
@@ -464,7 +464,7 @@ const getDepartmentIcon = (departmentName) => {
     'Accounting': mdiCashMultiple,
     'Laboratory': mdiTestTube,
     'Pharmacy': mdiPill,
-    'Radiology': mdiRadiobox,
+    'Radiology': mdiRadioactive, // CORRECTED
     'Rehabilitation': mdiPhysicalTherapy,
     'OPD': mdiNurse,
     'FCH Ward': mdiHeart,
