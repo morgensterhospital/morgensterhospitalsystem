@@ -371,20 +371,6 @@ export const handler = async (event, context) => {
   }
 
   try {
-    // Check if users already exist
-    const existingUsers = await db.collection('users').limit(1).get()
-    if (!existingUsers.empty) {
-      return {
-        statusCode: 200,
-        headers: corsHeaders,
-        body: JSON.stringify({ 
-          message: 'Users already seeded',
-          totalUsers: usersToCreate.length,
-          totalCreated: 0
-        })
-      }
-    }
-
     await seedUsers()
 
     return {
