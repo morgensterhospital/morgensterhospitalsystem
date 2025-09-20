@@ -114,7 +114,7 @@
         </div>
       </div>
 
-      <!-- Recent Transactions */
+      <!-- Recent Transactions -->
       <div class="transactions-section">
         <div class="transactions-card">
           <div class="section-header">
