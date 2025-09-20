@@ -1,16 +1,3 @@
-Of course. Here is the full, corrected code for your PatientProfile.vue component.
-
-The two changes are:
-
-In the <script setup> block, mdiNurse has been replaced with the correct icon name, mdiAccountNurse.
-
-In the <template> block, the mdi-icon for the "Nurses Notes" module now correctly references mdiAccountNurse.
-
-code
-Vue
-download
-content_copy
-expand_less
 
 <template>
   <div class="patient-profile">
