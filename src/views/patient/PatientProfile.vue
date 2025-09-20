@@ -315,7 +315,7 @@
         <!-- Operations/Surgeries Module -->
         <div v-if="hasPermission('operations:view')" class="module-card operations">
           <div class="module-header">
-            <mdi-icon :path="mdiScalpel" size="32" />
+            <mdi-icon :path="mdiScalpelLine" size="32" />
             <h3>OPERATIONS/SURGERIES</h3>
           </div>
           <div class="module-actions">
@@ -452,7 +452,7 @@ import {
   mdiPill,
   mdiTestTube,
   mdiRadioactive,
-  mdiScalpel,
+  mdiScalpelLine,
   mdiRun,
   mdiHospitalBuilding,
   mdiFileDocument,
@@ -1018,4 +1018,4 @@ onMounted(() => {
     min-width: 100%;
   }
 }
-</style>```
+</style>
