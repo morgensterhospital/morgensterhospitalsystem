@@ -1,3 +1,17 @@
+Of course. Here is the full, corrected code for your PatientProfile.vue component.
+
+The two changes are:
+
+In the <script setup> block, mdiNurse has been replaced with the correct icon name, mdiAccountNurse.
+
+In the <template> block, the mdi-icon for the "Nurses Notes" module now correctly references mdiAccountNurse.
+
+code
+Vue
+download
+content_copy
+expand_less
+
 <template>
   <div class="patient-profile">
     <!-- Page Header -->
@@ -170,7 +184,7 @@
         <!-- Nurse's Notes Module -->
         <div v-if="hasPermission('nurses_notes:view')" class="module-card nurses-notes">
           <div class="module-header">
-            <mdi-icon :path="mdiNurse" size="32" />
+            <mdi-icon :path="mdiAccountNurse" size="32" />
             <h3>NURSES NOTES</h3>
           </div>
           <div class="module-actions">
@@ -447,7 +461,7 @@ import {
   mdiAlertCircle,
   mdiCashMultiple,
   mdiDoctor,
-  mdiNurse,
+  mdiAccountNurse,
   mdiHeart,
   mdiPill,
   mdiTestTube,
