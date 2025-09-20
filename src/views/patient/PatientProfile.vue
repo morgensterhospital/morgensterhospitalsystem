@@ -1,4 +1,3 @@
-
 <template>
   <div class="patient-profile">
     <!-- Page Header -->
@@ -171,7 +170,7 @@
         <!-- Nurse's Notes Module -->
         <div v-if="hasPermission('nurses_notes:view')" class="module-card nurses-notes">
           <div class="module-header">
-            <mdi-icon :path="mdiAccountNurse" size="32" />
+            <mdi-icon :path="mdiStethoscope" size="32" />
             <h3>NURSES NOTES</h3>
           </div>
           <div class="module-actions">
@@ -287,7 +286,7 @@
         <!-- Radiology Module -->
         <div v-if="hasPermission('radiology_requests:view')" class="module-card radiology">
           <div class="module-header">
-            <mdi-icon :path="mdiRadiobox" size="32" />
+            <mdi-icon :path="mdiRadioactive" size="32" />
             <h3>RADIOLOGY</h3>
           </div>
           <div class="module-actions">
@@ -337,7 +336,7 @@
         <!-- Rehabilitation Module -->
         <div v-if="hasPermission('rehabilitation_notes:view')" class="module-card rehabilitation">
           <div class="module-header">
-            <mdi-icon :path="mdiPhysicalTherapy" size="32" />
+            <mdi-icon :path="mdiRun" size="32" />
             <h3>REHABILITATION NOTES</h3>
           </div>
           <div class="module-actions">
@@ -448,13 +447,13 @@ import {
   mdiAlertCircle,
   mdiCashMultiple,
   mdiDoctor,
-  mdiAccountNurse,
+  mdiStethoscope,
   mdiHeart,
   mdiPill,
   mdiTestTube,
-  mdiRadiobox,
+  mdiRadioactive,
   mdiScalpel,
-  mdiPhysicalTherapy,
+  mdiRun,
   mdiHospitalBuilding,
   mdiFileDocument,
   mdiHistory
@@ -1019,4 +1018,4 @@ onMounted(() => {
     min-width: 100%;
   }
 }
-</style>
+</style>```
