@@ -3,7 +3,7 @@
     <div class="profile-completion-modal">
       <div class="modal-header">
         <div class="header-icon">
-          <mdi-icon :path="mdiAccountEdit" size="32" color="#38bdf8" />
+          <mdi-icon :path="mdiAccountEdit" size="32" />
         </div>
         <h2>Complete Your Profile</h2>
         <p>Please provide your personal information to continue</p>
@@ -131,48 +131,49 @@ const handleSubmit = async () => {
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(15, 23, 42, 0.95);
-  backdrop-filter: blur(8px);
+  background: rgba(13, 11, 20, 0.9);
+  backdrop-filter: blur(10px);
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 9999;
-  padding: 20px;
+  padding: 1rem;
 }
 
 .profile-completion-modal {
-  background: var(--bg-card);
-  border-radius: 16px;
+  background-color: var(--bg-secondary);
+  border-radius: 24px;
   border: 1px solid var(--border-primary);
-  max-width: 600px;
+  max-width: 640px;
   width: 100%;
-  box-shadow: var(--shadow-xl);
-  animation: slideInUp 0.3s ease-out;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.6);
+  animation: slideInUp 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 @keyframes slideInUp {
   from {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(30px) scale(0.98);
   }
   to {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateY(0) scale(1);
   }
 }
 
 .modal-header {
-  padding: 32px 32px 24px 32px;
+  padding: 24px 32px;
   text-align: center;
   border-bottom: 1px solid var(--border-primary);
 }
 
 .header-icon {
-  margin-bottom: 16px;
+  margin-bottom: 12px;
+  color: var(--accent-primary);
 }
 
 .modal-header h2 {
-  font-size: 24px;
+  font-size: 22px;
   font-weight: 700;
   color: var(--text-primary);
   margin: 0 0 8px 0;
@@ -192,7 +193,7 @@ const handleSubmit = async () => {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 24px;
-  margin-bottom: 24px;
+  margin-bottom: 32px;
 }
 
 .form-group {
@@ -208,19 +209,24 @@ const handleSubmit = async () => {
 }
 
 .form-input {
-  padding: 16px;
-  background: var(--bg-secondary);
+  padding: 14px;
+  background-color: var(--bg-tertiary);
   border: 1px solid var(--border-primary);
-  border-radius: 8px;
+  border-radius: 12px;
   color: var(--text-primary);
   font-size: 16px;
-  transition: all 0.2s ease;
+  transition: all 0.3s ease;
+}
+
+.form-input:hover {
+  border-color: var(--accent-secondary);
+  background-color: var(--bg-hover);
 }
 
 .form-input:focus {
   outline: none;
   border-color: var(--accent-primary);
-  box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.1);
+  box-shadow: 0 0 0 3px rgba(138, 43, 226, 0.2);
 }
 
 .form-input::placeholder {
@@ -228,10 +234,10 @@ const handleSubmit = async () => {
 }
 
 .error-message {
-  padding: 12px 16px;
-  background: rgba(239, 68, 68, 0.1);
+  padding: 12px;
+  background-color: rgba(239, 68, 68, 0.1);
   border: 1px solid var(--accent-error);
-  border-radius: 8px;
+  border-radius: 10px;
   color: var(--accent-error);
   font-size: 14px;
   text-align: center;
@@ -240,40 +246,52 @@ const handleSubmit = async () => {
 
 .form-actions {
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
 }
 
 .submit-button {
-  background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
-  color: white;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px 32px;
+  background-color: var(--accent-primary);
+  color: #ffffff;
   border: none;
-  padding: 16px 32px;
-  border-radius: 8px;
+  border-radius: 12px;
   font-size: 16px;
   font-weight: 600;
   cursor: pointer;
-  transition: all 0.2s ease;
-  min-width: 200px;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
 }
 
 .submit-button:hover:not(:disabled) {
-  transform: translateY(-1px);
-  box-shadow: var(--shadow-lg);
+  background-color: var(--accent-secondary);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(138, 43, 226, 0.3);
 }
 
 .submit-button:disabled {
-  opacity: 0.6;
+  opacity: 0.5;
   cursor: not-allowed;
 }
 
 @media (max-width: 640px) {
   .profile-completion-modal {
-    margin: 10px;
+    margin: 0;
+    border-radius: 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
   }
 
-  .modal-header,
   .profile-form {
-    padding: 24px 20px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
 
   .form-grid {

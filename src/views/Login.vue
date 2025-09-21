@@ -9,7 +9,7 @@
         <!-- Hospital Header -->
         <div class="hospital-header">
           <div class="hospital-logo">
-            <mdi-icon :path="mdiHospital" size="48" color="#38bdf8" />
+            <mdi-icon :path="mdiHospital" size="48" />
           </div>
           <h1 class="hospital-name">MORGENSTER HOSPITAL</h1>
           <p class="hospital-subtitle">Management System</p>
@@ -180,11 +180,11 @@ const handleRoleChange = () => {
 <style scoped>
 .login-page {
   min-height: 100vh;
-  background: var(--bg-primary);
+  background-color: var(--bg-primary);
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 20px;
+  padding: 1rem;
   position: relative;
   overflow: hidden;
 }
@@ -196,66 +196,64 @@ const handleRoleChange = () => {
   right: 0;
   bottom: 0;
   background-image: 
-    radial-gradient(circle at 25% 25%, rgba(56, 189, 248, 0.1) 0%, transparent 50%),
-    radial-gradient(circle at 75% 75%, rgba(6, 182, 212, 0.1) 0%, transparent 50%);
-  animation: float 20s ease-in-out infinite;
+    radial-gradient(circle at 15% 50%, rgba(138, 43, 226, 0.1) 0%, transparent 40%),
+    radial-gradient(circle at 85% 30%, rgba(147, 112, 219, 0.1) 0%, transparent 40%);
+  animation: float 30s ease-in-out infinite;
 }
 
 @keyframes float {
   0%, 100% { transform: translateY(0px) rotate(0deg); }
-  50% { transform: translateY(-20px) rotate(1deg); }
+  50% { transform: translateY(-30px) rotate(2deg); }
 }
 
 .login-container {
   position: relative;
   z-index: 1;
   width: 100%;
-  max-width: 480px;
+  max-width: 420px;
 }
 
 .login-card {
-  background: var(--bg-card);
+  background-color: var(--bg-card);
   border: 1px solid var(--border-primary);
-  border-radius: 20px;
-  box-shadow: var(--shadow-xl);
+  border-radius: 24px;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
   overflow: hidden;
-  backdrop-filter: blur(12px);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .hospital-header {
-  padding: 40px 32px 32px 32px;
+  padding: 32px 24px;
   text-align: center;
-  background: linear-gradient(135deg, rgba(56, 189, 248, 0.1), rgba(6, 182, 212, 0.1));
   border-bottom: 1px solid var(--border-primary);
 }
 
 .hospital-logo {
-  margin-bottom: 16px;
-  animation: pulse 2s infinite;
+  margin-bottom: 12px;
+  display: inline-block;
+  color: var(--accent-primary);
 }
 
 .hospital-name {
-  font-size: 24px;
+  font-size: 22px;
   font-weight: 800;
-  margin: 0 0 8px 0;
-  background: linear-gradient(135deg, #38bdf8, #06b6d4);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  margin: 0 0 4px 0;
+  color: var(--text-primary);
 }
 
 .hospital-subtitle {
   color: var(--text-secondary);
   margin: 0;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 500;
 }
 
 .login-form {
-  padding: 32px;
+  padding: 24px;
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 20px;
 }
 
 .form-group {
@@ -269,34 +267,42 @@ const handleRoleChange = () => {
   align-items: center;
   gap: 8px;
   font-weight: 600;
-  font-size: 14px;
+  font-size: 12px;
   color: var(--text-secondary);
   text-transform: uppercase;
-  letter-spacing: 0.5px;
+  letter-spacing: 0.8px;
 }
 
 .form-select,
 .form-input {
-  padding: 16px;
-  background: var(--bg-secondary);
+  padding: 14px;
+  background-color: var(--bg-secondary);
   border: 1px solid var(--border-primary);
-  border-radius: 8px;
+  border-radius: 12px;
   color: var(--text-primary);
   font-size: 16px;
-  transition: all 0.2s ease;
+  transition: all 0.3s ease;
+}
+
+.form-select:hover,
+.form-input:hover {
+  border-color: var(--accent-secondary);
+  background-color: var(--bg-tertiary);
 }
 
 .form-select:focus,
 .form-input:focus {
   outline: none;
   border-color: var(--accent-primary);
-  box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.1);
+  box-shadow: 0 0 0 3px rgba(138, 43, 226, 0.2);
 }
 
 .form-select {
   cursor: pointer;
-  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%23cbd5e1' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e");
-  background-position: right 12px center;
+  -webkit-appearance: none;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%23A0A0A0' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e");
+  background-position: right 14px center;
   background-repeat: no-repeat;
   background-size: 16px;
   padding-right: 40px;
@@ -310,10 +316,10 @@ const handleRoleChange = () => {
   display: flex;
   align-items: center;
   gap: 8px;
-  padding: 12px 16px;
-  background: rgba(239, 68, 68, 0.1);
+  padding: 12px;
+  background-color: rgba(239, 68, 68, 0.1);
   border: 1px solid var(--accent-error);
-  border-radius: 8px;
+  border-radius: 10px;
   color: var(--accent-error);
   font-size: 14px;
 }
@@ -323,28 +329,28 @@ const handleRoleChange = () => {
   align-items: center;
   justify-content: center;
   gap: 8px;
-  padding: 16px 24px;
-  background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
-  color: white;
+  padding: 14px 24px;
+  background-color: var(--accent-primary);
+  color: #ffffff;
   border: none;
-  border-radius: 8px;
+  border-radius: 12px;
   font-size: 16px;
   font-weight: 600;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: all 0.3s ease;
   text-transform: uppercase;
-  letter-spacing: 0.5px;
+  letter-spacing: 0.8px;
 }
 
 .login-button:hover:not(:disabled) {
-  transform: translateY(-1px);
-  box-shadow: var(--shadow-lg);
+  background-color: var(--accent-secondary);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(138, 43, 226, 0.3);
 }
 
 .login-button:disabled {
-  opacity: 0.6;
+  opacity: 0.5;
   cursor: not-allowed;
-  transform: none;
 }
 
 .spinning {
@@ -356,20 +362,20 @@ const handleRoleChange = () => {
   align-items: center;
   justify-content: center;
   gap: 4px;
-  color: var(--accent-primary);
+  color: var(--accent-secondary);
   text-decoration: none;
   font-size: 14px;
   font-weight: 500;
-  transition: color 0.2s ease;
+  transition: color 0.3s ease;
 }
 
 .forgot-password:hover {
-  color: var(--accent-secondary);
+  color: var(--text-primary);
 }
 
 .system-footer {
-  padding: 24px 32px;
-  background: var(--bg-tertiary);
+  padding: 20px 24px;
+  background-color: transparent;
   text-align: center;
   border-top: 1px solid var(--border-primary);
 }
@@ -380,30 +386,25 @@ const handleRoleChange = () => {
   margin: 0;
 }
 
-@media (max-width: 640px) {
+@media (max-width: 480px) {
+  .login-page {
+    padding: 0;
+  }
+  .login-container {
+    max-width: 100%;
+    width: 100%;
+  }
   .login-card {
     margin: 0;
     border-radius: 0;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-  }
-
-  .hospital-header {
-    padding: 32px 24px;
-  }
-
-  .hospital-name {
-    font-size: 20px;
+    justify-content: center;
   }
 
   .login-form {
-    padding: 32px 24px;
-    flex: 1;
-  }
-
-  .system-footer {
-    padding: 20px 24px;
+    padding: 24px;
   }
 }
 </style>
