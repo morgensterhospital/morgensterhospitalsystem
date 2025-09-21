@@ -18,78 +18,64 @@
         <!-- Login Form -->
         <form @submit.prevent="handleLogin" class="login-form">
           <div class="form-group">
-            <label for="role" class="form-label">
-              <mdi-icon :path="mdiAccountGroup" size="16" />
-              LOG IN AS
-            </label>
-            <select
-              id="role"
-              v-model="selectedRole"
-              class="form-select"
-              required
-              @change="handleRoleChange"
-            >
-              <option value="">Select Your Role</option>
-              <option value="Admin">ADMIN</option>
-              <option value="Accounts Clerk">ACCOUNTS CLERK</option>
-              <option value="Account Assistant">ACCOUNT ASSISTANT</option>
-              <option value="Accountant">ACCOUNTANT</option>
-              <option value="Nurse">NURSE</option>
-              <option value="Doctor">DOCTOR</option>
-              <option value="Pharmacy Technician">PHARMACY TECHNICIAN</option>
-              <option value="Dispensary Assistant">DISPENSARY ASSISTANT</option>
-              <option value="Laboratory Technician">LABORATORY TECHNICIAN</option>
-              <option value="Radiologist">RADIOLOGIST</option>
-              <option value="Rehabilitation Technician">REHABILITATION TECHNICIAN</option>
-              <option value="Vitals Checker">VITALS CHECKER</option>
-            </select>
+            <div class="m3-select-wrapper">
+              <select
+                id="role"
+                v-model="selectedRole"
+                class="m3-select"
+                required
+                @change="handleRoleChange"
+              >
+                <option value="" disabled>Select Your Role</option>
+                <option value="Admin">ADMIN</option>
+                <option value="Accounts Clerk">ACCOUNTS CLERK</option>
+                <option value="Account Assistant">ACCOUNT ASSISTANT</option>
+                <option value="Accountant">ACCOUNTANT</option>
+                <option value="Nurse">NURSE</option>
+                <option value="Doctor">DOCTOR</option>
+                <option value="Pharmacy Technician">PHARMACY TECHNICIAN</option>
+                <option value="Dispensary Assistant">DISPENSARY ASSISTANT</option>
+                <option value="Laboratory Technician">LABORATORY TECHNICIAN</option>
+                <option value="Radiologist">RADIOLOGIST</option>
+                <option value="Rehabilitation Technician">REHABILITATION TECHNICIAN</option>
+                <option value="Vitals Checker">VITALS CHECKER</option>
+              </select>
+              <label for="role" class="m3-select-label">Role</label>
+            </div>
           </div>
 
-          <div class="form-group">
-            <label for="username" class="form-label">
-              <mdi-icon :path="mdiEmail" size="16" />
-              EMAIL ADDRESS
-            </label>
-            <input
-              id="username"
-              v-model="email"
-              type="email"
-              class="form-input"
-              placeholder="Enter your email address"
-              required
-            />
-          </div>
+          <m3-text-field
+            v-model="email"
+            label="Email Address"
+            type="email"
+            required
+            :error="error ? ' ' : ''"
+          />
 
-          <div class="form-group">
-            <label for="password" class="form-label">
-              <mdi-icon :path="mdiLock" size="16" />
-              PASSWORD
-            </label>
-            <input
-              id="password"
-              v-model="password"
-              type="password"
-              class="form-input"
-              placeholder="Enter your password"
-              required
-            />
-          </div>
+          <m3-text-field
+            v-model="password"
+            label="Password"
+            type="password"
+            required
+            :error="error ? ' ' : ''"
+          />
 
           <div v-if="error" class="error-message">
             <mdi-icon :path="mdiAlertCircle" size="16" />
             {{ error }}
           </div>
 
-          <button
+          <m3-button
             type="submit"
-            class="login-button"
+            variant="filled"
+            size="large"
             :disabled="loading || !selectedRole || !email || !password"
+            :icon="loading ? mdiLoading : mdiLogin"
+            full-width
           >
-            <mdi-icon v-if="loading" :path="mdiLoading" size="20" class="spinning" />
-            <mdi-icon v-else :path="mdiLogin" size="20" />
-            <span v-if="loading">LOGGING IN...</span>
-            <span v-else>LOG IN</span>
-          </button>
+            <span v-if="loading">Logging In...</span>
+            <span v-else>Log In</span>
+          </m3-button>
 
           <a href="#" class="forgot-password">
             <mdi-icon :path="mdiHelpCircle" size="14" />
@@ -111,6 +97,8 @@ import { ref } from 'vue'
 import { useRouter } from 'vue-router'
 import { useAuthStore } from '@/stores/authStore'
 import MdiIcon from '@/components/common/MdiIcon.vue'
+import M3TextField from '@/components/common/M3TextField.vue'
+import M3Button from '@/components/common/M3Button.vue'
 import {
   mdiHospital,
   mdiAccountGroup,
@@ -256,62 +244,6 @@ const handleRoleChange = () => {
   gap: 20px;
 }
 
-.form-group {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-.form-label {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-weight: 600;
-  font-size: 12px;
-  color: var(--text-secondary);
-  text-transform: uppercase;
-  letter-spacing: 0.8px;
-}
-
-.form-select,
-.form-input {
-  padding: 14px;
-  background-color: var(--bg-secondary);
-  border: 1px solid var(--border-primary);
-  border-radius: 12px;
-  color: var(--text-primary);
-  font-size: 16px;
-  transition: all 0.3s ease;
-}
-
-.form-select:hover,
-.form-input:hover {
-  border-color: var(--accent-secondary);
-  background-color: var(--bg-tertiary);
-}
-
-.form-select:focus,
-.form-input:focus {
-  outline: none;
-  border-color: var(--accent-primary);
-  box-shadow: 0 0 0 3px rgba(138, 43, 226, 0.2);
-}
-
-.form-select {
-  cursor: pointer;
-  -webkit-appearance: none;
-  appearance: none;
-  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%23A0A0A0' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e");
-  background-position: right 14px center;
-  background-repeat: no-repeat;
-  background-size: 16px;
-  padding-right: 40px;
-}
-
-.form-input::placeholder {
-  color: var(--text-muted);
-}
-
 .error-message {
   display: flex;
   align-items: center;
@@ -322,39 +254,6 @@ const handleRoleChange = () => {
   border-radius: 10px;
   color: var(--accent-error);
   font-size: 14px;
-}
-
-.login-button {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  padding: 14px 24px;
-  background-color: var(--accent-primary);
-  color: #ffffff;
-  border: none;
-  border-radius: 12px;
-  font-size: 16px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  text-transform: uppercase;
-  letter-spacing: 0.8px;
-}
-
-.login-button:hover:not(:disabled) {
-  background-color: var(--accent-secondary);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 15px rgba(138, 43, 226, 0.3);
-}
-
-.login-button:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
-}
-
-.spinning {
-  animation: spin 1s linear infinite;
 }
 
 .forgot-password {
@@ -385,6 +284,57 @@ const handleRoleChange = () => {
   color: var(--text-muted);
   margin: 0;
 }
+
+/* M3-style Select */
+.m3-select-wrapper {
+  position: relative;
+}
+
+.m3-select {
+  width: 100%;
+  padding: 16px;
+  border-radius: 12px;
+  border: 1px solid var(--border-primary);
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+  font-size: 16px;
+  cursor: pointer;
+  -webkit-appearance: none;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%23A0A0A0' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e");
+  background-position: right 16px center;
+  background-repeat: no-repeat;
+  background-size: 16px;
+  transition: all 0.2s ease;
+}
+
+.m3-select:hover {
+  border-color: var(--border-secondary);
+}
+
+.m3-select:focus {
+  outline: none;
+  border-width: 2px;
+  border-color: var(--accent-primary);
+  padding: 15px;
+}
+
+.m3-select-label {
+  position: absolute;
+  top: -7px;
+  left: 12px;
+  transform-origin: top left;
+  color: var(--text-secondary);
+  font-size: 12px;
+  pointer-events: none;
+  background: var(--bg-secondary);
+  padding: 0 4px;
+}
+
+.m3-select:focus + .m3-select-label {
+  color: var(--accent-primary);
+}
+
 
 @media (max-width: 480px) {
   .login-page {

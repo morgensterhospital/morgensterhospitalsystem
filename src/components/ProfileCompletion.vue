@@ -11,49 +11,27 @@
 
       <form @submit.prevent="handleSubmit" class="profile-form">
         <div class="form-grid">
-          <div class="form-group">
-            <label>First Name *</label>
-            <input
-              v-model="form.name"
-              type="text"
-              class="form-input"
-              placeholder="Enter your first name"
-              required
-            />
-          </div>
-
-          <div class="form-group">
-            <label>Last Name *</label>
-            <input
-              v-model="form.surname"
-              type="text"
-              class="form-input"
-              placeholder="Enter your last name"
-              required
-            />
-          </div>
-
-          <div class="form-group">
-            <label>ID Number *</label>
-            <input
-              v-model="form.idNumber"
-              type="text"
-              class="form-input"
-              placeholder="Enter your ID number"
-              required
-            />
-          </div>
-
-          <div class="form-group">
-            <label>Phone Number *</label>
-            <input
-              v-model="form.phoneNumber"
-              type="tel"
-              class="form-input"
-              placeholder="Enter your phone number"
-              required
-            />
-          </div>
+          <m3-text-field
+            v-model="form.name"
+            label="First Name"
+            required
+          />
+          <m3-text-field
+            v-model="form.surname"
+            label="Last Name"
+            required
+          />
+          <m3-text-field
+            v-model="form.idNumber"
+            label="ID Number"
+            required
+          />
+          <m3-text-field
+            v-model="form.phoneNumber"
+            label="Phone Number"
+            type="tel"
+            required
+          />
         </div>
 
         <div v-if="error" class="error-message">
@@ -61,14 +39,15 @@
         </div>
 
         <div class="form-actions">
-          <button
+          <m3-button
             type="submit"
-            class="submit-button"
+            variant="filled"
+            size="large"
             :disabled="loading"
           >
             <span v-if="loading">Saving...</span>
             <span v-else>Complete Profile</span>
-          </button>
+          </m3-button>
         </div>
       </form>
     </div>
@@ -79,6 +58,8 @@
 import { ref, reactive } from 'vue'
 import { useAuthStore } from '@/stores/authStore'
 import MdiIcon from '@/components/common/MdiIcon.vue'
+import M3TextField from '@/components/common/M3TextField.vue'
+import M3Button from '@/components/common/M3Button.vue'
 import { mdiAccountEdit } from '@mdi/js'
 import { doc, updateDoc } from 'firebase/firestore'
 import { db } from '@/services/firebase'
@@ -196,43 +177,6 @@ const handleSubmit = async () => {
   margin-bottom: 32px;
 }
 
-.form-group {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-.form-group label {
-  font-size: 14px;
-  font-weight: 600;
-  color: var(--text-secondary);
-}
-
-.form-input {
-  padding: 14px;
-  background-color: var(--bg-tertiary);
-  border: 1px solid var(--border-primary);
-  border-radius: 12px;
-  color: var(--text-primary);
-  font-size: 16px;
-  transition: all 0.3s ease;
-}
-
-.form-input:hover {
-  border-color: var(--accent-secondary);
-  background-color: var(--bg-hover);
-}
-
-.form-input:focus {
-  outline: none;
-  border-color: var(--accent-primary);
-  box-shadow: 0 0 0 3px rgba(138, 43, 226, 0.2);
-}
-
-.form-input::placeholder {
-  color: var(--text-muted);
-}
-
 .error-message {
   padding: 12px;
   background-color: rgba(239, 68, 68, 0.1);
@@ -247,35 +191,6 @@ const handleSubmit = async () => {
 .form-actions {
   display: flex;
   justify-content: flex-end;
-}
-
-.submit-button {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  padding: 14px 32px;
-  background-color: var(--accent-primary);
-  color: #ffffff;
-  border: none;
-  border-radius: 12px;
-  font-size: 16px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  text-transform: uppercase;
-  letter-spacing: 0.8px;
-}
-
-.submit-button:hover:not(:disabled) {
-  background-color: var(--accent-secondary);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 15px rgba(138, 43, 226, 0.3);
-}
-
-.submit-button:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
 }
 
 @media (max-width: 640px) {
