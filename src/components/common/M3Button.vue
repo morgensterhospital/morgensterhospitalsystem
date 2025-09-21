@@ -78,7 +78,7 @@ const handleClick = (event) => {
   align-items: center;
   justify-content: center;
   gap: 8px;
-  border-radius: 999px; /* Pill shape */
+  border-radius: 20px;
   font-family: 'Inter', sans-serif;
   font-weight: 600;
   text-transform: uppercase;
@@ -139,29 +139,34 @@ const handleClick = (event) => {
   border-color: var(--accent-primary);
 }
 .m3-button--filled:hover {
-  box-shadow: 0 2px 8px -2px var(--accent-primary);
+  box-shadow: 0 4px 12px -2px rgba(127, 90, 240, 0.4);
+  transform: translateY(-2px);
 }
 
 .m3-button--tonal {
-  background-color: var(--accent-secondary);
-  color: white;
+  background-color: var(--bg-tertiary);
+  color: var(--text-primary);
 }
-.m3-button--tonal .m3-button__overlay {
-  background-color: white;
+.m3-button--tonal:hover {
+  background-color: var(--bg-hover);
 }
 
 .m3-button--outlined {
   background-color: transparent;
   color: var(--accent-primary);
-  border-color: var(--border-primary);
+  border: 2px solid var(--border-primary);
 }
 .m3-button--outlined:hover {
-  background-color: rgba(138, 43, 226, 0.05); /* accent-primary with low opacity */
+  background-color: var(--bg-tertiary);
+  border-color: var(--accent-secondary);
 }
 
 .m3-button--text {
   background-color: transparent;
   color: var(--accent-primary);
+}
+.m3-button--text:hover {
+  background-color: var(--bg-tertiary);
 }
 
 /* Full width */
@@ -174,6 +179,7 @@ const handleClick = (event) => {
   width: 40px;
   min-width: 40px;
   padding: 0;
+  border-radius: 50%;
 }
 
 .m3-button--icon-only.m3-button--small {

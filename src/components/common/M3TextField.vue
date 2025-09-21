@@ -110,9 +110,9 @@ const handleBlur = (event) => {
 
 .m3-text-field__container {
   position: relative;
-  border-radius: 12px;
-  border: 1px solid var(--border-primary);
-  transition: border-color 0.2s ease;
+  border-radius: 20px;
+  border: 2px solid var(--border-primary);
+  transition: all 0.2s ease;
   background-color: var(--bg-secondary);
 }
 
@@ -135,8 +135,8 @@ const handleBlur = (event) => {
   color: var(--text-secondary);
   font-size: 16px;
   pointer-events: none;
-  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-  background: var(--bg-secondary); /* Match the input background */
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  background: var(--bg-secondary);
   padding: 0 4px;
 }
 
@@ -144,29 +144,24 @@ const handleBlur = (event) => {
 .m3-text-field--focused .m3-text-field__label,
 .m3-text-field__input:not(:placeholder-shown) + .m3-text-field__label {
   top: 0;
-  transform: translateY(-50%) scale(0.75);
-  font-size: 12px; /* This is overridden by the scale, but good for fallback */
+  transform: translateY(-50%) scale(0.8);
+  font-size: 12px;
 }
 
 /* Hover state */
 .m3-text-field:not(.m3-text-field--disabled):hover .m3-text-field__container {
-  border-color: var(--border-secondary);
+  border-color: var(--accent-secondary);
 }
 
 /* Focus state */
 .m3-text-field--focused .m3-text-field__container {
-  border-width: 2px;
   border-color: var(--accent-primary);
+  box-shadow: 0 0 0 3px rgba(127, 90, 240, 0.2);
 }
-
-.m3-text-field--focused .m3-text-field__input {
-    padding: 15px; /* Adjust padding to account for thicker border */
-}
-
 
 .m3-text-field--focused .m3-text-field__label {
   color: var(--accent-primary);
-  background-color: var(--bg-secondary); /* Ensure label background matches on focus */
+  background-color: var(--bg-secondary);
 }
 
 /* Error state */
@@ -175,7 +170,7 @@ const handleBlur = (event) => {
 }
 
 .m3-text-field--error.m3-text-field--focused .m3-text-field__container {
-  border-color: var(--accent-error);
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.2);
 }
 
 .m3-text-field--error .m3-text-field__label {
@@ -189,7 +184,6 @@ const handleBlur = (event) => {
 /* Disabled state */
 .m3-text-field--disabled .m3-text-field__container {
   background-color: var(--bg-tertiary);
-  border-color: var(--border-secondary);
   opacity: 0.6;
 }
 
